@@ -1,6 +1,6 @@
-# Personal Site
+# Personal Site with Sound Additions
 
-A scrapbook-style personal portfolio website built with Next.js, React, and Tailwind CSS. I wanted to create something interactive and fun, so I opted for a collage-styled layout similar to some of the pieces I showcase.
+A scrapbook-style personal portfolio website built with Next.js, React, and Tailwind CSS. For our sound for someone, I altered my portolio site to unlock a melody when all the pages are visited as well as an LED element that changes colors depending on what page you are visiting.
 
 ## Getting Started
 
