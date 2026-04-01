@@ -76,30 +76,19 @@ export default function Projects() {
               allowance. I utilized machine learning techniques and Streamlit to build the final front-end dashboard.
             </p>
             <p className="text-base text-olive-grey mb-6">
-              See video demo of our Streamlit interface on <button onClick={() => jumpToSlide(21)} className="text-deep-olive hover:text-ink underline cursor-pointer">slide 21</button>. The code is available on my <a href="https://github.com/kira-pan/predictive-patent-dashboard" target="_blank" rel="noopener noreferrer" className="text-deep-olive hover:text-ink underline">Github</a> as well.
+              See a screenshot of the Streamlit interface on <button type="button" onClick={() => jumpToSlide(21)} className="text-deep-olive hover:text-ink underline cursor-pointer">slide 21</button>. The code is available on my <a href="https://github.com/kira-pan/predictive-patent-dashboard" target="_blank" rel="noopener noreferrer" className="text-deep-olive hover:text-ink underline">Github</a> as well.
             </p>
             
             {/* Image Carousel */}
             <div className="relative w-full max-w-3xl mx-auto">
               <div className="relative w-full bg-paper flex items-center justify-center overflow-hidden transition-all duration-300" style={{ height: getSlideshowHeight() }}>
-                {currentImage === 21 ? (
-                  <video
-                    src="/images/jcp-demo.mov"
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                    className="object-contain max-w-full max-h-full"
-                  />
-                ) : (
-                  <Image
-                    src={`/images/jcp_${currentImage}.png`}
-                    alt={`Dashboard screenshot ${currentImage}`}
-                    width={1200}
-                    height={800}
-                    className="object-contain max-w-full max-h-full"
-                  />
-                )}
+                <Image
+                  src={`/images/jcp_${currentImage}.png`}
+                  alt={`Dashboard screenshot ${currentImage}`}
+                  width={1200}
+                  height={800}
+                  className="object-contain max-w-full max-h-full"
+                />
               </div>
               
               {/* Navigation Buttons */}
@@ -143,18 +132,18 @@ export default function Projects() {
 
             <div className="relative w-full max-w-3xl mx-auto">
               <div
-                className="relative w-full bg-paper flex items-center justify-center overflow-hidden transition-all duration-300"
+                className="relative w-full flex flex-col items-center justify-center gap-3 px-4 text-center border-2 border-ink/15 bg-gradient-to-br from-paper via-[#88958d]/20 to-[#bf6463]/25 shadow-[inset_0_0_60px_rgba(255,255,255,0.35)] transition-all duration-300"
                 style={{ height: getSlideshowHeight() }}
               >
-                <video
-                  src="/images/KiraPan_UncertainFootnotes_Demo.mov"
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  preload="metadata"
-                  className="object-contain max-w-full max-h-full"
-                />
+                <p className="font-handwriting text-lg md:text-xl text-ink">Uncertain Footnotes — interactive demo</p>
+                <a
+                  href="https://kira-pan.github.io/uncertain-footnotes/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-deep-olive hover:text-ink underline text-base font-medium"
+                >
+                  Open the live site
+                </a>
               </div>
             </div>
           </div>

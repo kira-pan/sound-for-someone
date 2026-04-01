@@ -9,13 +9,27 @@ import { useState, useEffect, useCallback, useMemo } from "react";
 const BIRD_CALLING_POSTER = "/images/KiraPan_Bird_Calling_Poster.jpg";
 const DATASTORY_FEED = "/images/recruitment/datastory feed.PNG";
 
+const MARKETING_GRADIENT_COFFEE = "gradient:coffee-chat";
+const MARKETING_GRADIENT_TIMELINE = "gradient:recruitment-timeline";
+
+function isMarketingGradient(src: string) {
+  return src.startsWith("gradient:");
+}
+
+function MarketingGradientPreview({ label }: { label: string }) {
+  return (
+    <div className="flex h-[350px] w-[250px] items-center justify-center bg-gradient-to-br from-paper via-[#88958d]/25 to-[#bf6463]/30">
+      <span className="px-3 text-center text-sm font-bold leading-snug text-ink font-handwriting">{label}</span>
+    </div>
+  );
+}
+
 export default function Portfolio() {
   const [selectedImage, setSelectedImage] = useState<{
     src: string;
     alt: string;
     width: number;
     height: number;
-    isVideo?: boolean;
   } | null>(null);
   const [isFlipped, setIsFlipped] = useState(false);
 
@@ -117,40 +131,24 @@ export default function Portfolio() {
                 className="flex-shrink-0 cursor-pointer"
                 onClick={(e) => {
                   e.stopPropagation();
-                  setSelectedImage({ src: "/images/recruitment/coffee chat story.MP4", alt: "Coffee chat story", width: 250, height: 350, isVideo: true });
+                  setSelectedImage({ src: MARKETING_GRADIENT_COFFEE, alt: "Coffee chat story", width: 250, height: 350 });
                   setIsFlipped(false);
                 }}
               >
                 <div className="bg-white border-2 border-ink p-2 shadow-[4px_4px_0px_0px_rgba(21,21,21,0.15)]">
-                  <video
-                    src="/images/recruitment/coffee chat story.MP4"
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                    preload="none"
-                    className="h-[350px] w-auto object-contain"
-                  />
+                  <MarketingGradientPreview label="Coffee chat story" />
                 </div>
               </div>
               <div 
                 className="flex-shrink-0 cursor-pointer"
                 onClick={(e) => {
                   e.stopPropagation();
-                  setSelectedImage({ src: "/images/Recruitment-Timeline.mp4", alt: "Recruitment Timeline", width: 250, height: 350, isVideo: true });
+                  setSelectedImage({ src: MARKETING_GRADIENT_TIMELINE, alt: "Recruitment timeline", width: 250, height: 350 });
                   setIsFlipped(false);
                 }}
               >
                 <div className="bg-white border-2 border-ink p-2 shadow-[4px_4px_0px_0px_rgba(21,21,21,0.15)]">
-                  <video
-                    src="/images/Recruitment-Timeline.mp4"
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                    preload="none"
-                    className="h-[350px] w-auto object-contain"
-                  />
+                  <MarketingGradientPreview label="Recruitment timeline" />
                 </div>
               </div>
               <div 
@@ -603,17 +601,11 @@ export default function Portfolio() {
               >
                 ×
               </button>
-              {selectedImage.isVideo ? (
+              {isMarketingGradient(selectedImage.src) ? (
                 <div className="bg-white border-2 border-ink p-2 shadow-[4px_4px_0px_0px_rgba(21,21,21,0.15)]">
-                  <video
-                    src={selectedImage.src}
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                    preload="auto"
-                    className="h-[350px] w-auto object-contain"
-                  />
+                  <div className="flex min-h-[350px] min-w-[250px] items-center justify-center bg-gradient-to-br from-paper via-[#88958d]/25 to-[#bf6463]/30 px-6 py-8">
+                    <span className="text-center text-base font-bold text-ink md:text-lg font-handwriting">{selectedImage.alt}</span>
+                  </div>
                 </div>
               ) : isDatastoryFeed ? (
                 <div className="bg-white border-2 border-ink p-1 shadow-[4px_4px_0px_0px_rgba(21,21,21,0.15)] flex items-center justify-center" style={{ height: `${selectedImage.height}px`, minWidth: 'fit-content' }}>

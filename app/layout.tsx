@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { ArduinoSerialProvider } from "@/components/ArduinoSerialProvider";
 
 export const metadata: Metadata = {
   title: "Kira Pan",
@@ -20,7 +21,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <ArduinoSerialProvider>{children}</ArduinoSerialProvider>
+      </body>
     </html>
   );
 }
